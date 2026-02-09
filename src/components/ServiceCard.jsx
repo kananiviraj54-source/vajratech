@@ -1,0 +1,42 @@
+"use client";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useRef } from "react";
+import * as Icons from "lucide-react";
+
+export default function ServiceCard({ title, description, icon, delay }) {
+    const cardRef = useRef();
+
+    useGSAP(() => {
+        gsap.from(cardRef.current, {
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            delay: delay * 0.2,
+            scrollTrigger: {
+                trigger: cardRef.current,
+                start: "top 80%",
+            },
+        });
+    }, [delay]);
+
+    const IconComponent = Icons[icon] || Icons.Code;
+
+    return (
+        <div
+            ref={cardRef}
+            className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 group hover:-translate-y-2 hover:shadow-[0_10px_30px_-10px_rgba(0,229,255,0.3)]"
+        >
+            <div className="w-12 h-12 mb-4 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center text-primary group-hover:text-white transition-colors">
+                <IconComponent size={24} />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                {title}
+            </h3>
+            <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                {description}
+            </p>
+        </div>
+    );
+}
