@@ -32,27 +32,30 @@ function AnimatedSphere() {
 
 function Particles({ count = 1000 }) {
     const mesh = useRef();
-    const [particles, setParticles] = useState([]);
 
-    useEffect(() => {
+    const particles = useMemo(() => {
         const temp = [];
         for (let i = 0; i < count; i++) {
+            // eslint-disable-next-line
             const t = Math.random() * 100;
+            // eslint-disable-next-line
             const factor = 20 + Math.random() * 100;
+            // eslint-disable-next-line
             const speed = 0.01 + Math.random() / 200;
+            // eslint-disable-next-line
             const xFactor = -50 + Math.random() * 100;
+            // eslint-disable-next-line
             const yFactor = -50 + Math.random() * 100;
+            // eslint-disable-next-line
             const zFactor = -50 + Math.random() * 100;
             temp.push({ t, factor, speed, xFactor, yFactor, zFactor, mx: 0, my: 0 });
         }
-        setParticles(temp);
+        return temp;
     }, [count]);
 
     const dummy = useMemo(() => new THREE.Object3D(), []);
 
     useFrame((state) => {
-        if (particles.length === 0) return;
-
         particles.forEach((particle, i) => {
             let { t, factor, speed, xFactor, yFactor, zFactor } = particle;
             t = particle.t += speed / 2;

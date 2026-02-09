@@ -1,9 +1,11 @@
 import Link from "next/link";
-import Hero3D from "@/components/Hero3D";
+import dynamic from "next/dynamic";
 import ServiceCard from "@/components/ServiceCard";
 import ProjectCard from "@/components/ProjectCard";
 import TechGrid from "@/components/TechGrid";
 import Button from "@/components/ui/Button";
+
+const Hero3D = dynamic(() => import("@/components/Hero3D"), { ssr: false });
 
 export default function Home() {
     const services = [
