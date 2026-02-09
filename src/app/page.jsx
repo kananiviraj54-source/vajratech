@@ -136,7 +136,7 @@ export default function Home() {
                 <div className="max-w-5xl mx-auto px-4 text-center">
                     <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
                     <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Let's discuss how VajraTechLabs can help you achieve your digital goals with our expert solutions.
+                        Let&apos;s discuss how VajraTechLabs can help you achieve your digital goals with our expert solutions.
                     </p>
                     <Button href="/contact" variant="primary" className="text-lg px-8 py-4">
                         Contact Us Today
