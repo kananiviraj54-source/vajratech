@@ -43,8 +43,8 @@ export default function Contact() {
                             <div>
                                 <h3 className="text-lg font-bold text-white mb-1">Visit Us</h3>
                                 <p className="text-gray-400">VajraTechLabs HQ,</p>
-                                <p className="text-gray-400">Tech Park, Bangalore,</p>
-                                <p className="text-gray-400">India - 560001</p>
+                                <p className="text-gray-400">Plot No. 65 Bhaktinandan Society, Surat,Gujarat</p>
+                                <p className="text-gray-400">India - 394101</p>
                             </div>
                         </div>
 
