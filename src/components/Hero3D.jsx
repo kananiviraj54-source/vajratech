@@ -32,8 +32,9 @@ function AnimatedSphere() {
 
 function Particles({ count = 1000 }) {
     const mesh = useRef();
+    const [particles, setParticles] = useState([]);
 
-    const particles = useMemo(() => {
+    useEffect(() => {
         const temp = [];
         for (let i = 0; i < count; i++) {
             const t = Math.random() * 100;
@@ -44,12 +45,14 @@ function Particles({ count = 1000 }) {
             const zFactor = -50 + Math.random() * 100;
             temp.push({ t, factor, speed, xFactor, yFactor, zFactor, mx: 0, my: 0 });
         }
-        return temp;
+        setParticles(temp);
     }, [count]);
 
     const dummy = useMemo(() => new THREE.Object3D(), []);
 
     useFrame((state) => {
+        if (particles.length === 0) return;
+
         particles.forEach((particle, i) => {
             let { t, factor, speed, xFactor, yFactor, zFactor } = particle;
             t = particle.t += speed / 2;
