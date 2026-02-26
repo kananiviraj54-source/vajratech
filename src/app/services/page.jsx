@@ -34,7 +34,6 @@ const categories = [
         id: "web",
         label: "Web Development",
         icon: Globe,
-        color: "#00e5ff",
         headline: "Fast, clean websites that actually convert",
         summary:
             "We build web applications and websites using Next.js, React, and whatever stack makes the most sense for your project. No unnecessary complexity, no bloat.",
@@ -66,7 +65,6 @@ const categories = [
         id: "mobile",
         label: "Mobile Apps",
         icon: Smartphone,
-        color: "#7c4dff",
         headline: "Apps people actually enjoy using",
         summary:
             "Cross-platform iOS and Android apps built with React Native. We focus on smooth interactions and performance — not just checking the 'we have an app' box.",
@@ -98,7 +96,6 @@ const categories = [
         id: "cloud",
         label: "Cloud & DevOps",
         icon: Cloud,
-        color: "#f50057",
         headline: "Infrastructure that doesn't wake you up at 3am",
         summary:
             "AWS setup, CI/CD pipelines, containerisation, and deployment automation. We build cloud infrastructure that's reliable, cost-effective, and doesn't require a dedicated ops team to babysit.",
@@ -130,7 +127,6 @@ const categories = [
         id: "design",
         label: "UI/UX Design",
         icon: Palette,
-        color: "#ff9800",
         headline: "Design that's actually thought through",
         summary:
             "We design interfaces people can navigate without a tutorial. Figma prototypes, design systems, user flows — we do the thinking before you spend money on development.",
@@ -162,7 +158,6 @@ const categories = [
         id: "ecommerce",
         label: "E-Commerce",
         icon: ShoppingCart,
-        color: "#00c853",
         headline: "Stores built to actually sell things",
         summary:
             "E-commerce that's set up properly — payments, inventory, shipping, discounts, admin panel. We've built stores from scratch and also fixed the ones that were losing sales due to bad UX.",
@@ -194,7 +189,6 @@ const categories = [
         id: "data",
         label: "Database & Backend",
         icon: Database,
-        color: "#29b6f6",
         headline: "Backends that don't fall over",
         summary:
             "Solid API and database work — schema design, query optimisation, data modelling. The unglamorous stuff that determines whether your app is fast or painful.",
@@ -226,7 +220,6 @@ const categories = [
         id: "security",
         label: "Cybersecurity",
         icon: Shield,
-        color: "#ef5350",
         headline: "Security you don't think about until it's too late",
         summary:
             "Security audits, penetration testing, and secure development practices. We help you find the holes before someone with bad intentions does.",
@@ -258,7 +251,6 @@ const categories = [
         id: "ai",
         label: "AI Integration",
         icon: Cpu,
-        color: "#ab47bc",
         headline: "AI that does something useful, not just AI for the pitch deck",
         summary:
             "We integrate AI tools and language models into your existing product or workflow. Practical automation — not science projects.",
@@ -290,7 +282,6 @@ const categories = [
         id: "networking",
         label: "Networking & IT Support",
         icon: Wifi,
-        color: "#26a69a",
         headline: "The infrastructure layer most people ignore",
         summary:
             "Network setup, IT infrastructure consulting, and ongoing technical support for businesses that need their systems to just work.",
@@ -318,7 +309,6 @@ const categories = [
         id: "analytics",
         label: "Analytics & Reporting",
         icon: BarChart2,
-        color: "#ffa726",
         headline: "Know what's actually happening in your product",
         summary:
             "Setting up proper analytics, building dashboards, and helping you understand the data you're already collecting but probably not using.",
@@ -346,7 +336,6 @@ const categories = [
         id: "consulting",
         label: "Tech Consulting",
         icon: TrendingUp,
-        color: "#78909c",
         headline: "A second opinion that's actually useful",
         summary:
             "Sometimes you just need someone technical to talk through a decision with — architecture, vendor choice, team structure, build vs buy. We do that.",
@@ -378,7 +367,6 @@ const categories = [
         id: "support",
         label: "Maintenance & Support",
         icon: Headphones,
-        color: "#4db6ac",
         headline: "We don't just build it and disappear",
         summary:
             "Ongoing support, bug fixes, dependency updates, and incremental improvements. For clients who want a long-term technical partner, not just a project vendor.",
@@ -463,18 +451,18 @@ export default function Services() {
     }, []);
 
     return (
-        <div className="bg-darker min-h-screen">
+        <div className="bg-black min-h-screen">
 
             {/* ── HEADER ── */}
             <section ref={heroRef} className="pt-36 pb-20 border-b border-white/5">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-                    <p className="hero-fade text-primary text-sm font-semibold tracking-widest uppercase mb-5">
+                    <p className="hero-fade text-gray-500 text-sm font-semibold tracking-widest uppercase mb-5">
                         Services
                     </p>
                     <h1 className="hero-fade text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight max-w-3xl mb-8">
                         Everything IT.
                         <br />
-                        <span className="text-primary">Done properly.</span>
+                        <span className="text-gray-300">Done properly.</span>
                     </h1>
                     <p className="hero-fade text-gray-400 text-lg max-w-xl leading-relaxed mb-10">
                         We cover the full stack of IT services — web, mobile, cloud, design,
@@ -484,7 +472,7 @@ export default function Services() {
                     <div className="hero-fade flex items-center gap-4 flex-wrap">
                         <Link
                             href="/contact"
-                            className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-darker font-bold text-sm hover:bg-white transition-colors duration-200"
+                            className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-bold text-sm hover:bg-gray-200 transition-colors duration-200"
                         >
                             Discuss your project
                             <ArrowUpRight size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -501,23 +489,17 @@ export default function Services() {
                     <section
                         key={cat.id}
                         id={cat.id}
-                        className={`py-20 border-b border-white/5 ${catIndex % 2 === 0 ? "bg-darker" : "bg-dark"}`}
+                        className={`py-20 border-b border-white/5 ${catIndex % 2 === 0 ? "bg-black" : "bg-[#111111]"}`}
                     >
                         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
                             {/* Category header */}
                             <div className="flex flex-col md:flex-row md:items-start gap-10 mb-14">
                                 {/* Left — icon + label */}
                                 <div className="md:w-72 shrink-0">
-                                    <div
-                                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                                        style={{ backgroundColor: `${cat.color}20`, border: `1px solid ${cat.color}40` }}
-                                    >
-                                        <Icon size={22} style={{ color: cat.color }} />
+                                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 bg-white/5 border border-white/10">
+                                        <Icon size={22} className="text-gray-400" />
                                     </div>
-                                    <p
-                                        className="text-xs font-semibold tracking-widest uppercase mb-2"
-                                        style={{ color: cat.color }}
-                                    >
+                                    <p className="text-xs font-semibold tracking-widest uppercase mb-2 text-gray-500">
                                         {cat.label}
                                     </p>
                                     <h2 className="text-2xl md:text-3xl font-black text-white leading-snug mb-4">
@@ -544,10 +526,7 @@ export default function Services() {
                                     <div className="divide-y divide-white/5 border-y border-white/5">
                                         {cat.services.map((svc, i) => (
                                             <div key={i} className="flex flex-col sm:flex-row gap-3 sm:gap-8 py-5 group">
-                                                <span
-                                                    className="text-xs font-bold pt-1 shrink-0 sm:w-5"
-                                                    style={{ color: cat.color, opacity: 0.6 }}
-                                                >
+                                                <span className="text-xs font-bold pt-1 shrink-0 sm:w-5 text-gray-600">
                                                     {String(i + 1).padStart(2, "0")}
                                                 </span>
                                                 <div>
@@ -569,10 +548,10 @@ export default function Services() {
             })}
 
             {/* ── HOW WE ENGAGE ── */}
-            <section className="py-24 bg-dark border-b border-white/5">
+            <section className="py-24 bg-[#111111] border-b border-white/5">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
                     <div className="mb-14">
-                        <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-4">
+                        <p className="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-4">
                             How we engage
                         </p>
                         <h2 className="text-3xl md:text-4xl font-black text-white max-w-xl leading-tight">
@@ -605,7 +584,7 @@ export default function Services() {
                                 className="p-7 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/15 hover:bg-white/[0.04] transition-all duration-300 flex flex-col"
                             >
                                 <h3 className="text-white font-black text-lg mb-1">{model.title}</h3>
-                                <p className="text-primary text-sm font-semibold mb-4">{model.price}</p>
+                                <p className="text-white text-sm font-semibold mb-4">{model.price}</p>
                                 <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">{model.desc}</p>
                                 <div className="flex flex-wrap gap-2">
                                     {model.tags.map((tag) => (
@@ -621,10 +600,10 @@ export default function Services() {
             </section>
 
             {/* ── FAQs ── */}
-            <section ref={faqRef} className="py-24 bg-darker border-b border-white/5">
+            <section ref={faqRef} className="py-24 bg-black border-b border-white/5">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
                     <div className="mb-14">
-                        <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-4">
+                        <p className="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-4">
                             FAQs
                         </p>
                         <h2 className="text-3xl md:text-4xl font-black text-white max-w-md leading-tight">
@@ -643,13 +622,13 @@ export default function Services() {
             </section>
 
             {/* ── CTA ── */}
-            <section className="py-24 bg-dark">
+            <section className="py-24 bg-[#111111]">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-col md:flex-row md:items-end justify-between gap-10">
                     <div className="max-w-lg">
                         <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
                             Not sure which service
                             <br />
-                            <span className="text-primary">you actually need?</span>
+                            <span className="text-gray-300">you actually need?</span>
                         </h2>
                         <p className="text-gray-400 text-sm leading-relaxed">
                             That&apos;s fine. Tell us about the problem you&apos;re trying to solve
@@ -660,7 +639,7 @@ export default function Services() {
                     <div className="flex flex-col gap-3 min-w-[220px]">
                         <Link
                             href="/contact"
-                            className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-darker font-bold text-sm hover:bg-white transition-colors duration-200"
+                            className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-black font-bold text-sm hover:bg-gray-200 transition-colors duration-200"
                         >
                             Start the conversation
                             <ArrowUpRight size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

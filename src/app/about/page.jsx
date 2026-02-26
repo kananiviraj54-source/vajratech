@@ -29,18 +29,18 @@ export default function About() {
     }, []);
 
     return (
-        <div className="bg-darker min-h-screen" ref={pageRef}>
+        <div className="bg-black min-h-screen" ref={pageRef}>
 
             {/* ── PAGE HEADER ── */}
             <section className="pt-36 pb-20 border-b border-white/5">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-                    <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-5">
+                    <p className="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-5">
                         About Us
                     </p>
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight max-w-3xl mb-8">
                         Small team.
                         <br />
-                        <span className="text-primary">Big work</span> ethic.
+                        <span className="text-white">Big work</span> ethic.
                     </h1>
                     <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
                         We&apos;re VajraTechLabs — a product-focused software studio from India.
@@ -121,13 +121,13 @@ export default function About() {
             </section>
 
             {/* ── MISSION & VISION ── */}
-            <section className="py-24 bg-dark border-b border-white/5">
+            <section className="py-24 bg-[#111111] border-b border-white/5">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
 
                         {/* Mission */}
                         <div>
-                            <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-4">
+                            <p className="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-4">
                                 Mission
                             </p>
                             <h2 className="text-3xl font-black text-white mb-6 leading-tight">
@@ -149,7 +149,7 @@ export default function About() {
 
                         {/* Vision */}
                         <div>
-                            <p className="text-secondary text-sm font-semibold tracking-widest uppercase mb-4">
+                            <p className="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-4">
                                 Vision
                             </p>
                             <h2 className="text-3xl font-black text-white mb-6 leading-tight">
@@ -173,10 +173,10 @@ export default function About() {
             </section>
 
             {/* ── HOW WE WORK ── */}
-            <section className="py-24 border-b border-white/5 bg-darker">
+            <section className="py-24 border-b border-white/5 bg-black">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
                     <div className="mb-14">
-                        <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-4">
+                        <p className="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-4">
                             How we work
                         </p>
                         <h2 className="text-3xl md:text-4xl font-black text-white max-w-lg leading-tight">
@@ -212,7 +212,7 @@ export default function About() {
                                     {item.step}
                                 </span>
                                 <div className="flex-1">
-                                    <h3 className="text-white font-bold text-lg mb-2 group-hover:text-primary transition-colors duration-200">
+                                    <h3 className="text-white font-bold text-lg mb-2 group-hover:text-gray-200 transition-colors duration-200">
                                         {item.title}
                                     </h3>
                                     <p className="text-gray-400 text-sm leading-relaxed max-w-2xl">
@@ -226,10 +226,10 @@ export default function About() {
             </section>
 
             {/* ── OUR CULTURE ── */}
-            <section className="py-24 bg-dark border-b border-white/5">
+            <section className="py-24 bg-[#111111] border-b border-white/5">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
                     <div className="mb-14">
-                        <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-4">
+                        <p className="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-4">
                             Our culture
                         </p>
                         <h2 className="text-3xl md:text-4xl font-black text-white max-w-lg leading-tight">
@@ -278,12 +278,12 @@ export default function About() {
             </section>
 
             {/* ── WHERE WE'RE HEADED ── */}
-            <section className="py-24 bg-darker border-b border-white/5">
+            <section className="py-24 bg-black border-b border-white/5">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                         {/* Left */}
                         <div>
-                            <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-4">
+                            <p className="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-4">
                                 The future
                             </p>
                             <h2 className="text-3xl md:text-4xl font-black text-white mb-8 leading-tight">
@@ -310,7 +310,7 @@ export default function About() {
                             </div>
                         </div>
 
-                        {/* Right — what we're currently focused on */}
+                        {/* Right */}
                         <div>
                             <h3 className="text-white font-bold text-lg mb-6">
                                 Right now, we&apos;re focused on:
@@ -323,7 +323,7 @@ export default function About() {
                                     "Building a small internal tool that we've wanted to exist for two years",
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-start gap-4 py-5">
-                                        <span className="text-primary font-black text-sm shrink-0 mt-0.5">—</span>
+                                        <span className="text-gray-600 font-black text-sm shrink-0 mt-0.5">—</span>
                                         <p className="text-gray-400 text-sm leading-relaxed">{item}</p>
                                     </div>
                                 ))}
@@ -334,13 +334,13 @@ export default function About() {
             </section>
 
             {/* ── CTA ── */}
-            <section className="py-24 bg-dark">
+            <section className="py-24 bg-[#111111]">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-col md:flex-row md:items-end justify-between gap-10">
                     <div className="max-w-lg">
                         <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
                             If any of this sounds like
                             <br />
-                            <span className="text-primary">the right fit</span>, let&apos;s talk.
+                            <span className="text-gray-300">the right fit</span>, let&apos;s talk.
                         </h2>
                         <p className="text-gray-400 text-sm leading-relaxed">
                             We&apos;re not for everyone — and that&apos;s okay. But if you
@@ -351,7 +351,7 @@ export default function About() {
                     <div className="flex flex-col gap-3">
                         <Link
                             href="/contact"
-                            className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-darker font-bold text-sm hover:bg-white transition-colors duration-200"
+                            className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-black font-bold text-sm hover:bg-gray-200 transition-colors duration-200"
                         >
                             Get in touch
                             <ArrowUpRight

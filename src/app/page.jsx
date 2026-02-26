@@ -116,32 +116,32 @@ export default function Home() {
     return (
         <>
             {/* ── HERO ── */}
-            <section className="relative min-h-screen flex flex-col justify-end pb-20 overflow-hidden bg-darker">
+            <section className="relative min-h-screen flex flex-col justify-end pb-20 overflow-hidden bg-black">
                 {/* Full-bleed 3D canvas behind */}
                 <div className="absolute inset-0 z-0">
                     <Hero3D />
                 </div>
 
                 {/* Dark gradient so text is always readable */}
-                <div className="absolute inset-0 z-10 bg-gradient-to-t from-darker via-darker/70 to-transparent pointer-events-none" />
-                <div className="absolute inset-0 z-10 bg-gradient-to-r from-darker/80 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/70 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/80 to-transparent pointer-events-none" />
 
                 {/* Content — bottom-left anchored */}
                 <div className="relative z-20 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
                     <div className="max-w-3xl">
-                        {/* Headline — staggered letters feel */}
+                        {/* Headline */}
                         <div className="overflow-hidden mb-2">
                             <h1 className="hero-char text-6xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white leading-none">
                                 We craft
                             </h1>
                         </div>
                         <div className="overflow-hidden mb-2">
-                            <h1 className="hero-char text-6xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-none text-primary">
+                            <h1 className="hero-char text-6xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-none text-white">
                                 software
                             </h1>
                         </div>
                         <div className="overflow-hidden mb-10">
-                            <h1 className="hero-char text-6xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white leading-none">
+                            <h1 className="hero-char text-6xl sm:text-7xl lg:text-8xl font-black tracking-tight text-gray-400 leading-none">
                                 that ships.
                             </h1>
                         </div>
@@ -157,7 +157,7 @@ export default function Home() {
                             </Button>
                             <Link
                                 href="/work"
-                                className="group flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm font-medium"
+                                className="group flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm font-medium"
                             >
                                 See our work
                                 <ArrowUpRight
@@ -169,9 +169,9 @@ export default function Home() {
                     </div>
 
                     {/* Meta line bottom-right */}
-                    <div className="absolute bottom-0 right-0 hidden lg:flex items-center gap-3 text-gray-500 text-xs tracking-widest uppercase">
+                    <div className="absolute bottom-0 right-0 hidden lg:flex items-center gap-3 text-gray-600 text-xs tracking-widest uppercase">
                         <span>Web · Mobile · Cloud</span>
-                        <span className="w-8 h-px bg-gray-600" />
+                        <span className="w-8 h-px bg-gray-700" />
                         <span>India</span>
                     </div>
                 </div>
@@ -183,9 +183,9 @@ export default function Home() {
             </section>
 
             {/* ── INTRO STRIP ── */}
-            <section className="bg-dark border-y border-white/5 py-12">
+            <section className="bg-[#111111] border-y border-white/5 py-12">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                    <p className="text-gray-400 text-sm font-medium max-w-sm">
+                    <p className="text-gray-500 text-sm font-medium max-w-sm">
                         We&apos;ve been building software since 2022 — small team, serious about craft.
                     </p>
                     <div className="flex items-center gap-8">
@@ -204,7 +204,7 @@ export default function Home() {
             </section>
 
             {/* ── SERVICES — list layout ── */}
-            <section className="py-24 bg-darker" ref={servicesRef}>
+            <section className="py-24 bg-black" ref={servicesRef}>
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
                     {/* Heading */}
                     <div className="mb-14 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
@@ -236,7 +236,7 @@ export default function Home() {
                                 </span>
 
                                 {/* Title */}
-                                <h3 className="text-xl font-bold text-white min-w-[180px] shrink-0 group-hover:text-primary transition-colors duration-200">
+                                <h3 className="text-xl font-bold text-white min-w-[180px] shrink-0 group-hover:text-gray-200 transition-colors duration-200">
                                     {s.title}
                                 </h3>
 
@@ -248,7 +248,7 @@ export default function Home() {
                                 {/* Arrow */}
                                 <Link
                                     href={s.link}
-                                    className="self-start sm:self-center shrink-0 text-gray-600 group-hover:text-primary transition-colors"
+                                    className="self-start sm:self-center shrink-0 text-gray-600 group-hover:text-white transition-colors"
                                     aria-label={`Learn more about ${s.title}`}
                                 >
                                     <ArrowUpRight
@@ -263,7 +263,7 @@ export default function Home() {
             </section>
 
             {/* ── PROJECTS ── */}
-            <section className="py-24 bg-dark">
+            <section className="py-24 bg-[#111111]">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
                     {/* Header */}
                     <div className="mb-14 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
@@ -282,7 +282,7 @@ export default function Home() {
                         </Link>
                     </div>
 
-                    {/* Project rows — staggered layout */}
+                    {/* Project rows */}
                     <div className="space-y-6">
                         {projects.map((p, i) => (
                             <Link
@@ -296,7 +296,7 @@ export default function Home() {
                                         {p.category}
                                     </div>
                                     <div className="text-xs text-gray-600 mb-4">{p.year}</div>
-                                    <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors duration-200">
+                                    <h3 className="text-lg font-bold text-white group-hover:text-gray-200 transition-colors duration-200">
                                         {p.title}
                                     </h3>
                                 </div>
@@ -319,7 +319,7 @@ export default function Home() {
                                 </div>
 
                                 {/* Arrow */}
-                                <div className="self-start md:self-center text-gray-600 group-hover:text-primary transition-colors shrink-0">
+                                <div className="self-start md:self-center text-gray-600 group-hover:text-white transition-colors shrink-0">
                                     <ArrowUpRight
                                         size={18}
                                         className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
@@ -331,10 +331,10 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* ── TECH STACK — inline sentence style ── */}
-            <section className="py-16 bg-darker border-y border-white/5">
+            {/* ── TECH STACK ── */}
+            <section className="py-16 bg-black border-y border-white/5">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-                    <p className="text-sm text-gray-500 font-medium mb-5 tracking-widest uppercase">
+                    <p className="text-sm text-gray-600 font-medium mb-5 tracking-widest uppercase">
                         Technologies we use daily
                     </p>
                     <p className="text-gray-300 text-xl font-medium leading-relaxed max-w-3xl">
@@ -342,7 +342,7 @@ export default function Home() {
                             <span key={tech}>
                                 <span className="text-white font-semibold">{tech}</span>
                                 {i < arr.length - 1 && (
-                                    <span className="text-gray-600 mx-2">·</span>
+                                    <span className="text-gray-700 mx-2">·</span>
                                 )}
                             </span>
                         ))}
@@ -351,7 +351,7 @@ export default function Home() {
             </section>
 
             {/* ── CTA ── */}
-            <section className="py-28 bg-dark">
+            <section className="py-28 bg-[#111111]">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
                     <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
                         {/* Left */}

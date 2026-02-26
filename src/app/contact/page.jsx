@@ -1,351 +1,212 @@
 "use client";
 
 import { useState } from "react";
-import {
-    Mail,
-    MapPin,
-    Phone,
-    Send,
-    Linkedin,
-    Github,
-    Twitter,
-    ArrowRight,
-    CheckCircle,
-} from "lucide-react";
-
-const contactDetails = [
-    {
-        icon: Mail,
-        label: "Email Us",
-        lines: ["info@vajratechlabs.in"],
-        color: "from-cyan-400 to-blue-500",
-        glow: "shadow-cyan-500/20",
-    },
-    {
-        icon: Phone,
-        label: "Call Us",
-        lines: ["+91 93132 45421"],
-        color: "from-violet-400 to-purple-600",
-        glow: "shadow-violet-500/20",
-    },
-    {
-        icon: MapPin,
-        label: "Visit Us",
-        lines: [
-            "65 BhaktiNandan Society,",
-            "Sector-2, Mota Varachha,",
-            "Surat, Gujarat — 394101",
-        ],
-        color: "from-fuchsia-400 to-pink-600",
-        glow: "shadow-fuchsia-500/20",
-    },
-];
-
-const socials = [
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-];
+import { Mail, Phone, MapPin, Clock, Send, Loader2 } from "lucide-react";
 
 export default function Contact() {
-    const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
-    const [focused, setFocused] = useState(null);
-    const [submitted, setSubmitted] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [formData, setFormData] = useState({ name: "", email: "", phone: "", service: "", budget: "", message: "" });
+    const [status, setStatus] = useState("idle");
 
-    const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+    const handleChange = (e) => setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
-        await new Promise((r) => setTimeout(r, 1400));
-        setLoading(false);
-        setSubmitted(true);
+        setStatus("loading");
+        await new Promise((r) => setTimeout(r, 1500));
+        setStatus("success");
     };
 
+    const contactDetails = [
+        {
+            icon: Mail,
+            label: "Email Us",
+            value: "info@vajratechlabs.com",
+            sub: "We reply within 24 hours",
+            href: "mailto:info@vajratechlabs.com",
+        },
+        {
+            icon: Phone,
+            label: "Call Us",
+            value: "+91 87800 10927",
+            sub: "Mon – Sat, 9am – 7pm IST",
+            href: "tel:+918780010927",
+        },
+        {
+            icon: MapPin,
+            label: "Visit Us",
+            value: "Surat, Gujarat, India",
+            sub: "Mota Varachha, 394101",
+            href: "https://maps.google.com/?q=21.2358,72.8775",
+        },
+        {
+            icon: Clock,
+            label: "Hours",
+            value: "Mon – Sat",
+            sub: "9:00 AM – 7:00 PM IST",
+        },
+    ];
+
     return (
-        <div className="relative min-h-screen bg-darker overflow-hidden">
-            {/* ── Ambient orbs ── */}
-            <div
-                aria-hidden
-                className="pointer-events-none fixed top-[-180px] left-[-180px] w-[520px] h-[520px] rounded-full"
-                style={{
-                    background:
-                        "radial-gradient(circle, rgba(0,229,255,0.18) 0%, transparent 70%)",
-                    filter: "blur(60px)",
-                }}
-            />
-            <div
-                aria-hidden
-                className="pointer-events-none fixed bottom-[-200px] right-[-200px] w-[600px] h-[600px] rounded-full"
-                style={{
-                    background:
-                        "radial-gradient(circle, rgba(124,77,255,0.18) 0%, transparent 70%)",
-                    filter: "blur(80px)",
-                }}
-            />
-            <div
-                aria-hidden
-                className="pointer-events-none fixed top-[40%] right-[20%] w-[300px] h-[300px] rounded-full"
-                style={{
-                    background:
-                        "radial-gradient(circle, rgba(245,0,87,0.08) 0%, transparent 70%)",
-                    filter: "blur(50px)",
-                }}
-            />
+        <div className="bg-black min-h-screen">
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
-
-                {/* ── Hero text ── */}
-                <div className="text-center mb-20 space-y-5">
-                    <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase px-4 py-1.5 rounded-full border border-primary/30 text-primary bg-primary/5">
-                        Get In Touch
-                    </span>
-                    <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-gray-300">
-                            Let's Build
-                        </span>
+            {/* ── HEADER ── */}
+            <section className="pt-36 pb-20 border-b border-white/5">
+                <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+                    <p className="text-gray-500 text-sm font-semibold tracking-widest uppercase mb-5">Contact</p>
+                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight max-w-3xl mb-8 text-white">
+                        Let&apos;s build
                         <br />
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent">
-                            Something Great
-                        </span>
+                        <span className="text-gray-300">something great.</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                        Have a project in mind, or just want to say hello? Drop us a message —
-                        we typically respond within 24 hours.
+                    <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
+                        Tell us what you&apos;re working on. We&apos;ll respond within 24 hours — and we&apos;ll be straightforward about whether we&apos;re the right fit.
                     </p>
                 </div>
+            </section>
 
-                {/* ── Main grid ── */}
-                <div className="grid lg:grid-cols-5 gap-10">
+            {/* ── MAIN CONTENT ── */}
+            <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
 
-                    {/* ── Left: Contact cards ── */}
-                    <div className="lg:col-span-2 flex flex-col gap-6">
-                        {contactDetails.map(({ icon: Icon, label, lines, color, glow }) => (
-                            <div
-                                key={label}
-                                className={`group relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 flex items-start gap-5 hover:border-white/20 transition-all duration-300 hover:shadow-xl ${glow}`}
-                            >
-                                {/* Shimmer line on hover */}
-                                <div className={`absolute inset-x-0 top-0 h-[2px] rounded-full bg-gradient-to-r ${color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-
-                                <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center shadow-lg`}>
-                                    <Icon size={22} className="text-white" />
+                    {/* ── LEFT — Contact Details ── */}
+                    <div className="lg:col-span-2 space-y-4">
+                        {contactDetails.map((item, i) => {
+                            const Icon = item.icon;
+                            const inner = (
+                                <div
+                                    key={i}
+                                    className="p-5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-white/15 hover:bg-white/[0.05] transition-all duration-300 flex items-start gap-4"
+                                >
+                                    <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                                        <Icon size={18} className="text-gray-400" />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wider mb-0.5">{item.label}</p>
+                                        <p className="text-white font-semibold text-sm">{item.value}</p>
+                                        <p className="text-gray-500 text-xs mt-0.5">{item.sub}</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-1">
-                                        {label}
-                                    </p>
-                                    {lines.map((l, i) => (
-                                        <p key={i} className="text-gray-200 text-sm leading-relaxed">
-                                            {l}
-                                        </p>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
+                            );
+                            return item.href ? (
+                                <a href={item.href} key={i} target="_blank" rel="noreferrer">{inner}</a>
+                            ) : <div key={i}>{inner}</div>;
+                        })}
 
-                        {/* Socials */}
-                        <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6">
-                            <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-4">
-                                Follow Us
-                            </p>
-                            <div className="flex gap-3">
-                                {socials.map(({ icon: Icon, href, label }) => (
-                                    <a
-                                        key={label}
-                                        href={href}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        aria-label={label}
-                                        className="w-11 h-11 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-200"
-                                    >
-                                        <Icon size={18} />
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="rounded-2xl border border-white/10 overflow-hidden relative" style={{ height: "224px" }}>
+                        {/* Map */}
+                        <div className="rounded-xl overflow-hidden border border-white/5 mt-6">
                             <iframe
-                                src="https://www.openstreetmap.org/export/embed.html?bbox=72.8516%2C21.2159%2C72.8916%2C21.2559&layer=mapnik&marker=21.2359%2C72.8716"
-                                width="100%"
-                                height="100%"
-                                style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
-                                className="opacity-70 hover:opacity-100 transition-opacity duration-500"
+                                src="https://www.openstreetmap.org/export/embed.html?bbox=72.85%2C21.22%2C72.90%2C21.25&layer=mapnik&marker=21.2358%2C72.8775"
+                                className="w-full h-48"
+                                style={{ filter: "invert(1) hue-rotate(180deg) grayscale(30%) brightness(0.7)" }}
+                                title="Office Location"
                                 loading="lazy"
-                                title="VajraTechLabs Office — Mota Varachha, Surat"
                             />
+                            <div className="bg-[#111111] px-4 py-3 border-t border-white/5">
+                                <a
+                                    href="https://www.google.com/maps?q=21.2358,72.8775"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="text-xs text-gray-400 hover:text-white transition-colors font-medium"
+                                >
+                                    Open in Google Maps →
+                                </a>
+                            </div>
                         </div>
-                        <a
-                            href="https://www.google.com/maps/search/65+BhaktiNandan+Society+Sector+2+Mota+Varachha+Surat+Gujarat+394101"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-primary transition-colors mt-1"
-                        >
-                            <MapPin size={12} />
-                            Open in Google Maps
-                        </a>
                     </div>
 
-                    {/* ── Right: Form ── */}
+                    {/* ── RIGHT — Contact Form ── */}
                     <div className="lg:col-span-3">
-                        <div className="relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 md:p-12 overflow-hidden">
-                            {/* top gradient bar */}
-                            <div
-                                aria-hidden
-                                className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-primary via-secondary to-accent"
-                            />
+                        <div className="rounded-2xl bg-white/[0.02] border border-white/8 overflow-hidden">
+                            {/* Top gradient bar */}
+                            <div className="h-px bg-gradient-to-r from-white via-gray-400 to-gray-700" />
+                            <div className="p-8">
+                                <h2 className="text-xl font-black text-white mb-1">Send us a message</h2>
+                                <p className="text-gray-500 text-sm mb-8">We read every message and reply personally.</p>
 
-                            {submitted ? (
-                                /* ── Success state ── */
-                                <div className="flex flex-col items-center justify-center py-20 gap-6 text-center">
-                                    <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center animate-bounce">
-                                        <CheckCircle size={40} className="text-primary" />
-                                    </div>
-                                    <h2 className="text-3xl font-bold text-white">Message Sent!</h2>
-                                    <p className="text-gray-400 max-w-sm">
-                                        Thanks for reaching out. Our team will get back to you within 24 hours.
-                                    </p>
-                                    <button
-                                        onClick={() => { setSubmitted(false); setForm({ name: "", email: "", subject: "", message: "" }); }}
-                                        className="mt-4 px-6 py-2.5 rounded-xl border border-primary/40 text-primary text-sm font-medium hover:bg-primary/10 transition-all"
-                                    >
-                                        Send Another
-                                    </button>
-                                </div>
-                            ) : (
-                                /* ── Form ── */
-                                <form onSubmit={handleSubmit} className="space-y-6">
-                                    <div className="mb-8">
-                                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                                            Send a Message
-                                        </h2>
-                                        <p className="text-gray-400 text-sm">
-                                            Fill out the form below and we'll be in touch soon.
-                                        </p>
-                                    </div>
-
-                                    <div className="grid sm:grid-cols-2 gap-6">
-                                        <Field
-                                            id="name"
-                                            label="Full Name"
-                                            type="text"
-                                            placeholder="John Doe"
-                                            value={form.name}
-                                            onChange={handleChange}
-                                            focused={focused}
-                                            onFocus={() => setFocused("name")}
-                                            onBlur={() => setFocused(null)}
-                                        />
-                                        <Field
-                                            id="email"
-                                            label="Email Address"
-                                            type="email"
-                                            placeholder="john@example.com"
-                                            value={form.email}
-                                            onChange={handleChange}
-                                            focused={focused}
-                                            onFocus={() => setFocused("email")}
-                                            onBlur={() => setFocused(null)}
-                                        />
-                                    </div>
-
-                                    <Field
-                                        id="subject"
-                                        label="Subject"
-                                        type="text"
-                                        placeholder="What's this about?"
-                                        value={form.subject}
-                                        onChange={handleChange}
-                                        focused={focused}
-                                        onFocus={() => setFocused("subject")}
-                                        onBlur={() => setFocused(null)}
-                                    />
-
-                                    {/* Textarea */}
-                                    <div>
-                                        <label
-                                            htmlFor="message"
-                                            className="block text-sm font-medium text-gray-400 mb-2"
-                                        >
-                                            Message
-                                        </label>
-                                        <div
-                                            className={`relative rounded-xl transition-all duration-200 ${focused === "message"
-                                                ? "ring-2 ring-primary/60 shadow-[0_0_20px_rgba(0,229,255,0.1)]"
-                                                : ""
-                                                }`}
-                                        >
-                                            <textarea
-                                                id="message"
-                                                name="message"
-                                                rows={5}
-                                                required
-                                                value={form.message}
-                                                onChange={handleChange}
-                                                onFocus={() => setFocused("message")}
-                                                onBlur={() => setFocused(null)}
-                                                placeholder="Tell us about your project, timeline, and goals…"
-                                                className="w-full px-4 py-3 bg-dark/60 border border-white/10 rounded-xl text-white placeholder-gray-600 text-sm resize-none outline-none transition-colors duration-200 focus:border-transparent"
-                                            />
+                                {status === "success" ? (
+                                    <div className="text-center py-16">
+                                        <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-5">
+                                            <Send size={22} className="text-white" />
                                         </div>
+                                        <h3 className="text-white font-bold text-lg mb-2">Message sent!</h3>
+                                        <p className="text-gray-400 text-sm">We&apos;ll get back to you within 24 hours.</p>
                                     </div>
+                                ) : (
+                                    <form onSubmit={handleSubmit} className="space-y-5">
+                                        {/* Name + Email */}
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                            <div>
+                                                <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">Name *</label>
+                                                <input type="text" name="name" required value={formData.name} onChange={handleChange}
+                                                    placeholder="Your full name"
+                                                    className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-white/40 focus:ring-1 focus:ring-white/20 transition-colors" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">Email *</label>
+                                                <input type="email" name="email" required value={formData.email} onChange={handleChange}
+                                                    placeholder="your@email.com"
+                                                    className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-white/40 focus:ring-1 focus:ring-white/20 transition-colors" />
+                                            </div>
+                                        </div>
 
-                                    <button
-                                        type="submit"
-                                        disabled={loading}
-                                        className="group w-full flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-semibold text-dark bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,229,255,0.3)] disabled:opacity-60 disabled:cursor-not-allowed"
-                                    >
-                                        {loading ? (
-                                            <>
-                                                <span className="w-5 h-5 border-2 border-dark/40 border-t-dark rounded-full animate-spin" />
-                                                Sending…
-                                            </>
-                                        ) : (
-                                            <>
-                                                Send Message
-                                                <ArrowRight
-                                                    size={18}
-                                                    className="transition-transform duration-200 group-hover:translate-x-1"
-                                                />
-                                            </>
-                                        )}
-                                    </button>
-                                </form>
-                            )}
+                                        {/* Phone + Service */}
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                            <div>
+                                                <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">Phone</label>
+                                                <input type="tel" name="phone" value={formData.phone} onChange={handleChange}
+                                                    placeholder="+91 XXXXX XXXXX"
+                                                    className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-white/40 focus:ring-1 focus:ring-white/20 transition-colors" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">Service Needed</label>
+                                                <select name="service" value={formData.service} onChange={handleChange}
+                                                    className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-white/40 focus:ring-1 focus:ring-white/20 transition-colors appearance-none">
+                                                    <option value="" disabled className="bg-[#111111]">Select a service</option>
+                                                    {["Web Development", "Mobile App", "Cloud / DevOps", "UI/UX Design", "E-Commerce", "AI Integration", "Consulting", "Other"].map((s) => (
+                                                        <option key={s} value={s} className="bg-[#111111]">{s}</option>
+                                                    ))}
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        {/* Budget */}
+                                        <div>
+                                            <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">Approximate Budget</label>
+                                            <select name="budget" value={formData.budget} onChange={handleChange}
+                                                className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-white/40 focus:ring-1 focus:ring-white/20 transition-colors appearance-none">
+                                                <option value="" disabled className="bg-[#111111]">Select a range</option>
+                                                {["Under ₹25,000", "₹25,000 – ₹75,000", "₹75,000 – ₹2,00,000", "₹2,00,000 – ₹5,00,000", "₹5,00,000+", "Not sure yet"].map((b) => (
+                                                    <option key={b} value={b} className="bg-[#111111]">{b}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+
+                                        {/* Message */}
+                                        <div>
+                                            <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">What are you building? *</label>
+                                            <textarea name="message" required rows={5} value={formData.message} onChange={handleChange}
+                                                placeholder="Tell us about your project, the problem you're solving, and what you need from us..."
+                                                className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-white/40 focus:ring-1 focus:ring-white/20 transition-colors resize-none" />
+                                        </div>
+
+                                        <button type="submit" disabled={status === "loading"}
+                                            className="w-full flex items-center justify-center gap-2 py-3.5 rounded-lg bg-white text-black font-bold text-sm hover:bg-gray-200 disabled:opacity-60 transition-all duration-200">
+                                            {status === "loading" ? (
+                                                <><Loader2 size={16} className="animate-spin" /> Sending...</>
+                                            ) : (
+                                                <><Send size={16} /> Send Message</>
+                                            )}
+                                        </button>
+
+                                        <p className="text-gray-600 text-xs text-center">
+                                            We never share your information. No spam, ever.
+                                        </p>
+                                    </form>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    );
-}
-
-/* ── Reusable field component ── */
-function Field({ id, label, type, placeholder, value, onChange, focused, onFocus, onBlur }) {
-    const isFocused = focused === id;
-    return (
-        <div>
-            <label htmlFor={id} className="block text-sm font-medium text-gray-400 mb-2">
-                {label}
-            </label>
-            <div
-                className={`relative rounded-xl transition-all duration-200 ${isFocused ? "ring-2 ring-primary/60 shadow-[0_0_20px_rgba(0,229,255,0.1)]" : ""
-                    }`}
-            >
-                <input
-                    type={type}
-                    id={id}
-                    name={id}
-                    required
-                    value={value}
-                    onChange={onChange}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    placeholder={placeholder}
-                    className="w-full px-4 py-3 bg-dark/60 border border-white/10 rounded-xl text-white placeholder-gray-600 text-sm outline-none transition-colors duration-200 focus:border-transparent"
-                />
             </div>
         </div>
     );

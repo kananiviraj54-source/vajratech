@@ -6,7 +6,7 @@ import { ExternalLink, Github } from "lucide-react";
 
 export default function ProjectCard({ title, description, tags, image, demoLink, repoLink }) {
     return (
-        <div className="group relative rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div className="group relative rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-white/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
             {/* Image Container */}
             <div className="relative h-48 w-full overflow-hidden">
                 {image ? (
@@ -26,7 +26,7 @@ export default function ProjectCard({ title, description, tags, image, demoLink,
                         <Link
                             href={demoLink}
                             target="_blank"
-                            className="p-2 bg-primary rounded-full hover:bg-white hover:text-primary transition-colors text-white"
+                            className="p-2 bg-white rounded-full hover:bg-gray-200 transition-colors text-black"
                         >
                             <ExternalLink size={20} />
                         </Link>
@@ -35,7 +35,7 @@ export default function ProjectCard({ title, description, tags, image, demoLink,
                         <Link
                             href={repoLink}
                             target="_blank"
-                            className="p-2 bg-gray-800 rounded-full hover:bg-white hover:text-dark transition-colors text-white"
+                            className="p-2 bg-white/10 border border-white/20 rounded-full hover:bg-white hover:text-black transition-colors text-white"
                         >
                             <Github size={20} />
                         </Link>
@@ -45,7 +45,7 @@ export default function ProjectCard({ title, description, tags, image, demoLink,
 
             {/* Content */}
             <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-gray-100 transition-colors">
                     {title}
                 </h3>
                 <p className="text-gray-400 text-sm mb-4 line-clamp-3">{description}</p>
@@ -53,7 +53,7 @@ export default function ProjectCard({ title, description, tags, image, demoLink,
                     {tags.map((tag) => (
                         <span
                             key={tag}
-                            className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20"
+                            className="px-2 py-1 text-xs font-medium rounded-full bg-white/5 text-gray-400 border border-white/10"
                         >
                             {tag}
                         </span>

@@ -11,12 +11,12 @@ export default function Button({
     icon = false,
     ...props
 }) {
-    const baseStyles = "inline-flex items-center justify-center px-6 py-3 border text-base font-medium rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark";
+    const baseStyles = "inline-flex items-center justify-center px-6 py-3 border text-base font-medium rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-white/30";
 
     const variants = {
-        primary: "border-transparent text-white bg-gradient-to-r from-primary to-secondary hover:shadow-[0_0_20px_rgba(0,229,255,0.5)]",
-        outline: "border-primary text-primary bg-transparent hover:bg-primary/10",
-        secondary: "border-transparent text-dark bg-white hover:bg-gray-100",
+        primary: "border-transparent text-black bg-white hover:bg-gray-200",
+        outline: "border-white text-white bg-transparent hover:bg-white/10",
+        secondary: "border-transparent text-black bg-gray-200 hover:bg-white",
     };
 
     const content = (

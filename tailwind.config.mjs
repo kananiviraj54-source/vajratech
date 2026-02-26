@@ -10,11 +10,11 @@ const config = {
             colors: {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
-                primary: "#00e5ff", // Cyan
-                secondary: "#7c4dff", // Deep Purple
-                accent: "#f50057", // Pinkish Red
-                dark: "#0f172a", // Slate 900
-                darker: "#020617", // Slate 950
+                primary: "#ffffff",   // White
+                secondary: "#a1a1aa", // Zinc-400
+                accent: "#71717a",    // Zinc-500
+                dark: "#111111",      // Near-black
+                darker: "#000000",    // Pure black
             },
             fontFamily: {
                 sans: ["var(--font-inter)", "sans-serif"],
