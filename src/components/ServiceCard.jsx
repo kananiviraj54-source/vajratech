@@ -1,42 +1,43 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { useRef } from "react";
-import * as Icons from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
-export default function ServiceCard({ title, description, icon, delay }) {
-    const cardRef = useRef();
-
-    useGSAP(() => {
-        gsap.from(cardRef.current, {
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            delay: delay * 0.2,
-            scrollTrigger: {
-                trigger: cardRef.current,
-                start: "top 80%",
-            },
-        });
-    }, [delay]);
-
-    const IconComponent = Icons[icon] || Icons.Code;
-
+export default function ServiceCard({ number, title, detail, link, index }) {
     return (
-        <div
-            ref={cardRef}
-            className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 group hover:-translate-y-2 hover:shadow-[0_10px_30px_-10px_rgba(0,229,255,0.3)]"
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="group relative"
         >
-            <div className="w-12 h-12 mb-4 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center text-primary group-hover:text-white transition-colors">
-                <IconComponent size={24} />
+            <div className="glass-card rounded-3xl p-8 h-full flex flex-col justify-between">
+                <div>
+                    <div className="flex justify-between items-start mb-6">
+                        <span className="text-4xl font-black text-white/5 font-display select-none">
+                            {number}
+                        </span>
+                        <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                            <ArrowUpRight size={24} />
+                        </div>
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">
+                        {title}
+                    </h3>
+                    <p className="text-slate-400 leading-relaxed mb-8">
+                        {detail}
+                    </p>
+                </div>
+                
+                <Link 
+                    href={link}
+                    className="inline-flex items-center text-sm font-bold text-slate-300 group-hover:text-white transition-colors"
+                >
+                    Learn more
+                </Link>
             </div>
-            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                {title}
-            </h3>
-            <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
-                {description}
-            </p>
-        </div>
+        </motion.div>
     );
 }

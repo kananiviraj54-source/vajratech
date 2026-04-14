@@ -10,18 +10,18 @@ if (typeof window !== "undefined") {
 }
 
 const technologies = [
-    { name: "React", color: "#61DAFB" },
-    { name: "Next.js", color: "#ffffff" },
-    { name: "Tailwind CSS", color: "#38B2AC" },
-    { name: "Three.js", color: "#ffffff" },
-    { name: "GSAP", color: "#88CE02" },
-    { name: "Node.js", color: "#339933" },
-    { name: "Express", color: "#ffffff" },
-    { name: "MongoDB", color: "#47A248" },
-    { name: "MySQL", color: "#4479A1" },
-    { name: "AWS", color: "#FF9900" },
-    { name: "Docker", color: "#2496ED" },
-    { name: "Git", color: "#F05032" },
+    { name: "React" },
+    { name: "Next.js" },
+    { name: "Tailwind CSS" },
+    { name: "Three.js" },
+    { name: "GSAP" },
+    { name: "Node.js" },
+    { name: "Express" },
+    { name: "MongoDB" },
+    { name: "MySQL" },
+    { name: "AWS" },
+    { name: "Docker" },
+    { name: "Git" },
 ];
 
 export default function TechGrid() {
@@ -45,12 +45,9 @@ export default function TechGrid() {
             {technologies.map((tech) => (
                 <div
                     key={tech.name}
-                    className="tech-item flex flex-col items-center justify-center p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-colors group"
+                    className="tech-item flex flex-col items-center justify-center p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/30 transition-colors group"
                 >
-                    <div
-                        className="w-2 h-2 rounded-full mb-3"
-                        style={{ backgroundColor: tech.color }}
-                    />
+                    <div className="w-2 h-2 rounded-full mb-3 bg-gray-500" />
                     <span className="font-semibold text-gray-300 group-hover:text-white transition-colors">
                         {tech.name}
                     </span>
