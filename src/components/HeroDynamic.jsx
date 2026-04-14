@@ -14,7 +14,6 @@ export default function HeroDynamic() {
                 <div className="absolute top-[20%] right-[10%] w-[25%] h-[25%] bg-accent/15 rounded-full blur-[80px]" />
             </div>
 
-
             <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
