@@ -20,6 +20,12 @@ export const metadata = {
     title: "VajraTech | Cutting-Edge Digital Solutions",
     description: "Transforming businesses through modern web, mobile, and cloud engineering. We build the future of digital experiences.",
     keywords: "Next.js, React, Web Development, Cloud Engineering, Mobile Apps, UI/UX Design",
+    verification: {
+        google: "ca-pub-2652532336958071", // This is usually for search console, might not be for adsense account literal meta
+    },
+    other: {
+        'google-adsense-account': 'ca-pub-2652532336958071',
+    }
 };
 
 export default function RootLayout({ children }) {
