@@ -16,27 +16,40 @@ export default function Contact() {
         setStatus("loading");
 
         try {
-            const templateParams = {
-                user_name: formData.name,
-                user_email: formData.email,
-                service: formData.service,
-                budget: formData.budget,
-                message: formData.message,
+            const payload = {
+                service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+                template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+                user_id: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+                template_params: {
+                    user_name: formData.name,
+                    user_email: formData.email,
+                    service: formData.service,
+                    budget: formData.budget,
+                    message: formData.message,
+                },
             };
 
-            await emailjs.send(
-                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-                templateParams,
-                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-            );
+            const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+            });
 
-            setStatus("success");
-            setFormData({ name: "", email: "", phone: "", service: "", budget: "", message: "" });
+            if (response.ok) {
+                setStatus("success");
+                setFormData({ name: "", email: "", phone: "", service: "", budget: "", message: "" });
+            } else {
+                const errorData = await response.text();
+                throw new Error(errorData || "Failed to send email");
+            }
         } catch (error) {
-            console.error("EmailJS Error:", error);
+            console.error("EmailJS Error:", error.message);
             setStatus("idle");
-            alert("Failed to send message. Please ensure you've added your Public Key to .env.local or try again later.");
+            if (process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY_HERE") {
+                alert("CRITICAL ERROR: You have not replaced 'YOUR_PUBLIC_KEY_HERE' in your .env.local file. The email cannot be sent without it.");
+            } else {
+                alert(`Engineering Error: ${error.message}. Please check your Public Key.`);
+            }
         }
     };
 
