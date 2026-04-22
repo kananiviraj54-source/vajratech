@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Loader2, Sparkles, CheckCircle2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
     const [formData, setFormData] = useState({ name: "", email: "", phone: "", service: "", budget: "", message: "" });
@@ -13,8 +14,30 @@ export default function Contact() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus("loading");
-        await new Promise((r) => setTimeout(r, 1500));
-        setStatus("success");
+
+        try {
+            const templateParams = {
+                user_name: formData.name,
+                user_email: formData.email,
+                service: formData.service,
+                budget: formData.budget,
+                message: formData.message,
+            };
+
+            await emailjs.send(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+                templateParams,
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+            );
+
+            setStatus("success");
+            setFormData({ name: "", email: "", phone: "", service: "", budget: "", message: "" });
+        } catch (error) {
+            console.error("EmailJS Error:", error);
+            setStatus("idle");
+            alert("Failed to send message. Please ensure you've added your Public Key to .env.local or try again later.");
+        }
     };
 
     const contactDetails = [
@@ -49,7 +72,7 @@ export default function Contact() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed"
+                        className="text-slate-600 text-lg md:text-xl max-w-2xl leading-relaxed"
                     >
                         Whether you have a fully-fledged spec or just a rough idea,
                         we're here to help you engineer the solution.
@@ -69,14 +92,14 @@ export default function Contact() {
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="flex items-start gap-6 glass-card p-6 rounded-3xl border-white/5 hover:border-primary/30 group transition-all"
+                                    className="flex items-start gap-6 glass-card p-6 rounded-3xl border-slate-200 hover:border-primary/30 group transition-all"
                                 >
-                                    <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-slate-400 group-hover:bg-primary/10 group-hover:text-primary transition-all">
+                                    <div className="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-500 group-hover:bg-primary/10 group-hover:text-primary transition-all">
                                         <item.icon size={24} />
                                     </div>
                                     <div>
                                         <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">{item.label}</p>
-                                        <p className="text-white font-bold text-lg mb-1">{item.value}</p>
+                                        <p className="text-slate-900 font-bold text-lg mb-1">{item.value}</p>
                                         <p className="text-slate-500 text-xs">{item.sub}</p>
                                     </div>
                                 </motion.a>
@@ -95,7 +118,7 @@ export default function Contact() {
                                     "Weekly progress demonstrations",
                                     "Post-launch technical support"
                                 ].map(text => (
-                                    <li key={text} className="flex items-center gap-3 text-slate-300 text-sm">
+                                    <li key={text} className="flex items-center gap-3 text-slate-700 text-sm">
                                         <CheckCircle2 size={16} className="text-primary shrink-0" />
                                         {text}
                                     </li>
@@ -109,7 +132,7 @@ export default function Contact() {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="glass-card rounded-[2.5rem] p-8 md:p-12 border-white/10"
+                            className="glass-card rounded-[2.5rem] p-8 md:p-12 border-slate-200"
                         >
                             <AnimatePresence mode="wait">
                                 {status === "success" ? (
@@ -122,8 +145,8 @@ export default function Contact() {
                                         <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-8 text-primary">
                                             <Send size={40} />
                                         </div>
-                                        <h2 className="text-3xl font-black text-white mb-4 font-display">Transmission Sent.</h2>
-                                        <p className="text-slate-400">We've received your message and will reach out within 24 hours.</p>
+                                        <h2 className="text-3xl font-black text-slate-900 mb-4 font-display">Transmission Sent.</h2>
+                                        <p className="text-slate-600">We've received your message and will reach out within 24 hours.</p>
                                         <button
                                             onClick={() => setStatus("idle")}
                                             className="mt-8 text-primary font-bold hover:underline"
@@ -143,7 +166,7 @@ export default function Contact() {
                                                 <input
                                                     type="text" name="name" required value={formData.name} onChange={handleChange}
                                                     placeholder="John Doe"
-                                                    className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-primary/50 transition-all"
+                                                    className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary/50 transition-all focus:bg-white"
                                                 />
                                             </div>
                                             <div className="space-y-2">
@@ -151,7 +174,7 @@ export default function Contact() {
                                                 <input
                                                     type="email" name="email" required value={formData.email} onChange={handleChange}
                                                     placeholder="john@example.com"
-                                                    className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-primary/50 transition-all"
+                                                    className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary/50 transition-all focus:bg-white"
                                                 />
                                             </div>
                                         </div>
@@ -161,25 +184,25 @@ export default function Contact() {
                                                 <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-1">Service</label>
                                                 <select
                                                     name="service" value={formData.service} onChange={handleChange}
-                                                    className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-primary/50 transition-all appearance-none"
+                                                    className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:border-primary/50 transition-all appearance-none focus:bg-white"
                                                 >
-                                                    <option value="" disabled className="bg-background">Choose Service</option>
-                                                    <option value="web" className="bg-background">Web Engineering</option>
-                                                    <option value="mobile" className="bg-background">Mobile Solution</option>
-                                                    <option value="cloud" className="bg-background">Cloud & DevOps</option>
-                                                    <option value="design" className="bg-background">UI/UX Strategy</option>
+                                                    <option value="" disabled className="bg-white">Choose Service</option>
+                                                    <option value="web" className="bg-white">Web Engineering</option>
+                                                    <option value="mobile" className="bg-white">Mobile Solution</option>
+                                                    <option value="cloud" className="bg-white">Cloud & DevOps</option>
+                                                    <option value="design" className="bg-white">UI/UX Strategy</option>
                                                 </select>
                                             </div>
                                             <div className="space-y-2">
                                                 <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-1">Budget</label>
                                                 <select
                                                     name="budget" value={formData.budget} onChange={handleChange}
-                                                    className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-primary/50 transition-all appearance-none"
+                                                    className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:border-primary/50 transition-all appearance-none focus:bg-white"
                                                 >
-                                                    <option value="" disabled className="bg-background">Budget Range</option>
-                                                    <option value="small" className="bg-background">&lt; ₹50k</option>
-                                                    <option value="med" className="bg-background">₹50k - ₹2L</option>
-                                                    <option value="large" className="bg-background">₹2L+</option>
+                                                    <option value="" disabled className="bg-white">Budget Range</option>
+                                                    <option value="small" className="bg-white">&lt; ₹50k</option>
+                                                    <option value="med" className="bg-white">₹50k - ₹2L</option>
+                                                    <option value="large" className="bg-white">₹2L+</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -189,7 +212,7 @@ export default function Contact() {
                                             <textarea
                                                 name="message" required rows={4} value={formData.message} onChange={handleChange}
                                                 placeholder="Tell us about your goals..."
-                                                className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-primary/50 transition-all resize-none"
+                                                className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary/50 transition-all resize-none focus:bg-white"
                                             />
                                         </div>
 

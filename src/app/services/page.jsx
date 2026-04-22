@@ -73,7 +73,7 @@ export default function Services() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed mb-12"
+                        className="text-slate-600 text-lg md:text-xl max-w-2xl leading-relaxed mb-12"
                     >
                         We offer a comprehensive suite of digital services designed 
                         to help modern companies build better products, faster.
@@ -88,7 +88,7 @@ export default function Services() {
                         <Link href="/contact" className="px-8 py-4 rounded-2xl bg-primary text-white font-bold hover:scale-105 transition-all shadow-xl shadow-primary/20">
                             Start a Project
                         </Link>
-                        <Link href="/work" className="px-8 py-4 rounded-2xl glass-panel text-white font-bold hover:bg-white/5 transition-all">
+                        <Link href="/work" className="px-8 py-4 rounded-2xl glass-panel border-slate-200 text-slate-900 font-bold hover:bg-slate-50 transition-all">
                             See Our Results
                         </Link>
                     </motion.div>
@@ -105,7 +105,7 @@ export default function Services() {
             </section>
 
             {/* Why Choose Us */}
-            <section className="py-24 bg-[#010413] border-y border-white/5">
+            <section className="py-24 bg-slate-50 border-y border-slate-200">
                 <div className="max-w-7xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-5xl font-black mb-16 font-display">
                         Why partner with <span className="text-primary">us?</span>
@@ -115,8 +115,8 @@ export default function Services() {
                             <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                                 <Zap size={32} />
                             </div>
-                            <h4 className="text-xl font-bold text-white mb-4">Velocity</h4>
-                            <p className="text-slate-400 text-sm leading-relaxed">
+                            <h4 className="text-xl font-bold text-slate-900 mb-4">Velocity</h4>
+                            <p className="text-slate-600 text-sm leading-relaxed">
                                 We ship high-quality code at startup speed, enabling you to iterate and scale quickly.
                             </p>
                         </div>
@@ -124,8 +124,8 @@ export default function Services() {
                             <div className="w-16 h-16 rounded-2xl bg-violet/10 flex items-center justify-center text-violet mb-6">
                                 <Target size={32} />
                             </div>
-                            <h4 className="text-xl font-bold text-white mb-4">Precision</h4>
-                            <p className="text-slate-400 text-sm leading-relaxed">
+                            <h4 className="text-xl font-bold text-slate-900 mb-4">Precision</h4>
+                            <p className="text-slate-600 text-sm leading-relaxed">
                                 Every line of code and every pixel is placed with intent, ensuring a premium outcome.
                             </p>
                         </div>
@@ -133,8 +133,8 @@ export default function Services() {
                             <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-6">
                                 <Layers size={32} />
                             </div>
-                            <h4 className="text-xl font-bold text-white mb-4">Scalability</h4>
-                            <p className="text-slate-400 text-sm leading-relaxed">
+                            <h4 className="text-xl font-bold text-slate-900 mb-4">Scalability</h4>
+                            <p className="text-slate-600 text-sm leading-relaxed">
                                 We design architectures that grow with your user base, from 1 to 1 million.
                             </p>
                         </div>
@@ -161,15 +161,15 @@ function ServiceRow({ cat, index }) {
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8">
                     <Icon size={28} />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-black text-white mb-6 font-display">
+                <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6 font-display">
                     {cat.headline}
                 </h2>
-                <p className="text-slate-400 text-lg mb-8 leading-relaxed italic border-l-2 border-primary/30 pl-6">
+                <p className="text-slate-600 text-lg mb-8 leading-relaxed italic border-l-2 border-primary/30 pl-6">
                     "{cat.summary}"
                 </p>
                 <div className="flex flex-wrap gap-2">
                     {cat.stack.map(s => (
-                        <span key={s} className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-[10px] font-bold text-slate-400 hover:text-white transition-colors">
+                        <span key={s} className="px-3 py-1 rounded-lg bg-slate-100 border border-slate-200 text-[10px] font-bold text-slate-500 hover:text-primary transition-colors">
                             {s}
                         </span>
                     ))}
@@ -178,12 +178,12 @@ function ServiceRow({ cat, index }) {
 
             <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {cat.services.map((svc, i) => (
-                    <div key={i} className="p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] transition-all group">
+                    <div key={i} className="p-6 rounded-2xl bg-white border border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-md transition-all group">
                         <div className="flex justify-between items-center mb-4">
                             <span className="text-[10px] font-black text-primary/50 uppercase tracking-widest">Service {i + 1}</span>
-                            <ArrowUpRight size={14} className="text-slate-600 group-hover:text-primary transition-colors" />
+                            <ArrowUpRight size={14} className="text-slate-400 group-hover:text-primary transition-colors" />
                         </div>
-                        <h4 className="text-white font-bold text-lg mb-2">{svc}</h4>
+                        <h4 className="text-slate-900 font-bold text-lg mb-2">{svc}</h4>
                         <p className="text-xs text-slate-500">Professional {svc.toLowerCase()} tailored to your needs.</p>
                     </div>
                 ))}

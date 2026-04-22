@@ -14,9 +14,9 @@ export default function Button({
     const baseStyles = "inline-flex items-center justify-center px-6 py-3 border text-base font-medium rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-white/30";
 
     const variants = {
-        primary: "border-transparent text-black bg-white hover:bg-gray-200",
-        outline: "border-white text-white bg-transparent hover:bg-white/10",
-        secondary: "border-transparent text-black bg-gray-200 hover:bg-white",
+        primary: "border-transparent text-white bg-primary hover:bg-primary/90 shadow-sm",
+        outline: "border-slate-300 text-slate-700 bg-transparent hover:bg-slate-50",
+        secondary: "border-transparent text-slate-900 bg-slate-100 hover:bg-slate-200",
     };
 
     const content = (

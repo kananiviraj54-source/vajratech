@@ -30,7 +30,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" className="dark scroll-smooth">
+        <html lang="en" className="scroll-smooth">
             <head>
                 <Script 
                     async 

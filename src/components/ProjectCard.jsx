@@ -6,7 +6,7 @@ import { ExternalLink, Github } from "lucide-react";
 
 export default function ProjectCard({ title, description, tags, image, demoLink, repoLink }) {
     return (
-        <div className="group relative rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-white/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div className="group relative rounded-xl overflow-hidden bg-white border border-slate-200 hover:border-primary/20 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
             {/* Image Container */}
             <div className="relative h-48 w-full overflow-hidden">
                 {image ? (
@@ -17,7 +17,7 @@ export default function ProjectCard({ title, description, tags, image, demoLink,
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                 ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center text-gray-600">
+                    <div className="w-full h-full bg-slate-100 flex items-center justify-center text-slate-300">
                         No Image
                     </div>
                 )}
@@ -45,15 +45,15 @@ export default function ProjectCard({ title, description, tags, image, demoLink,
 
             {/* Content */}
             <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-gray-100 transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">
                     {title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-4 line-clamp-3">{description}</p>
+                <p className="text-slate-600 text-sm mb-4 line-clamp-3">{description}</p>
                 <div className="flex flex-wrap gap-2">
                     {tags.map((tag) => (
                         <span
                             key={tag}
-                            className="px-2 py-1 text-xs font-medium rounded-full bg-white/5 text-gray-400 border border-white/10"
+                            className="px-2 py-1 text-xs font-medium rounded-full bg-slate-100 text-slate-600 border border-slate-200"
                         >
                             {tag}
                         </span>

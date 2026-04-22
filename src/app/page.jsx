@@ -45,7 +45,7 @@ export default function Home() {
             <HeroDynamic />
 
             {/* Stats Band */}
-            <section className="py-20 border-y border-white/5 relative bg-white/[0.02] backdrop-blur-sm">
+            <section className="py-20 border-y border-slate-200 relative bg-slate-50 backdrop-blur-sm">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-12">
                         {stats.map((stat, i) => (
@@ -56,10 +56,10 @@ export default function Home() {
                                 transition={{ delay: i * 0.1 }}
                                 className="text-center md:text-left"
                             >
-                                <div className="text-4xl md:text-5xl font-black text-white mb-2 font-display">
+                                <div className="text-4xl md:text-5xl font-black text-slate-900 mb-2 font-display">
                                     {stat.value}
                                 </div>
-                                <div className="text-slate-500 font-medium tracking-wide uppercase text-xs">
+                                <div className="text-slate-600 font-medium tracking-wide uppercase text-xs">
                                     {stat.label}
                                 </div>
                             </motion.div>
@@ -76,7 +76,7 @@ export default function Home() {
                             <h2 className="text-4xl md:text-6xl font-black mb-6 font-display">
                                 Focused on <span className="text-gradient">performance.</span>
                             </h2>
-                            <p className="text-slate-400 text-lg">
+                            <p className="text-slate-600 text-lg">
                                 We specialize in the modern stack, helping startups and established 
                                 enterprises build digital products that move the needle.
                             </p>
@@ -95,7 +95,7 @@ export default function Home() {
             </section>
 
             {/* Why Us / Feature Bento */}
-            <section className="py-32 relative bg-[#010413]">
+            <section className="py-32 relative bg-slate-50">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         <div className="lg:col-span-2 glass-card rounded-3xl p-10 md:p-16 flex flex-col justify-center">
@@ -107,29 +107,29 @@ export default function Home() {
                                 <div className="flex gap-4">
                                     <Zap className="text-primary shrink-0" size={24} />
                                     <div>
-                                        <h4 className="font-bold text-white mb-2">Rapid Development</h4>
-                                        <p className="text-sm text-slate-400">Launch faster without sacrificing quality or security.</p>
+                                        <h4 className="font-bold text-slate-900 mb-2">Rapid Development</h4>
+                                        <p className="text-sm text-slate-600">Launch faster without sacrificing quality or security.</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
                                     <Shield className="text-primary shrink-0" size={24} />
                                     <div>
-                                        <h4 className="font-bold text-white mb-2">Enterprise Security</h4>
-                                        <p className="text-sm text-slate-400">SOC2 compliant patterns and encrypted data flows.</p>
+                                        <h4 className="font-bold text-slate-900 mb-2">Enterprise Security</h4>
+                                        <p className="text-sm text-slate-600">SOC2 compliant patterns and encrypted data flows.</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
                                     <CheckCircle2 className="text-primary shrink-0" size={24} />
                                     <div>
-                                        <h4 className="font-bold text-white mb-2">Clean Code</h4>
-                                        <p className="text-sm text-slate-400">Modular, tested, and high-performance engineering.</p>
+                                        <h4 className="font-bold text-slate-900 mb-2">Clean Code</h4>
+                                        <p className="text-sm text-slate-600">Modular, tested, and high-performance engineering.</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
                                     <Rocket className="text-primary shrink-0" size={24} />
                                     <div>
-                                        <h4 className="font-bold text-white mb-2">Cloud Optimized</h4>
-                                        <p className="text-sm text-slate-400">Cost-effective infrastructure that grows with you.</p>
+                                        <h4 className="font-bold text-slate-900 mb-2">Cloud Optimized</h4>
+                                        <p className="text-sm text-slate-600">Cost-effective infrastructure that grows with you.</p>
                                     </div>
                                 </div>
                             </div>
@@ -157,14 +157,14 @@ export default function Home() {
             </section>
 
             {/* Technical Focus Strip */}
-            <section className="py-24 border-t border-white/5">
+            <section className="py-24 border-t border-slate-200">
                 <div className="max-w-7xl mx-auto px-6 text-center">
                     <p className="text-slate-500 font-bold tracking-widest uppercase text-xs mb-10">
                         Our Modern Tech Stack
                     </p>
-                    <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 text-slate-400 font-display font-medium text-xl md:text-2xl">
+                    <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 text-slate-500 font-display font-medium text-xl md:text-2xl">
                         {["Next.js", "React", "TypeScript", "Node.js", "AWS", "PostgreSQL", "Docker", "Tailwind"].map((tech) => (
-                            <span key={tech} className="hover:text-white transition-colors cursor-default">
+                            <span key={tech} className="hover:text-primary transition-colors cursor-default">
                                 {tech}
                             </span>
                         ))}

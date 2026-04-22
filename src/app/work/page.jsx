@@ -43,7 +43,7 @@ export default function Work() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-slate-400 text-lg max-w-2xl leading-relaxed"
+                        className="text-slate-600 text-lg max-w-2xl leading-relaxed"
                     >
                         From enterprise platforms to niche local businesses — we build solutions that 
                         solve real technical challenges and deliver measurable outcomes.
@@ -53,7 +53,7 @@ export default function Work() {
 
             {/* Filters Bar */}
             <div className="px-6 mb-12 sticky top-24 z-30">
-                <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-4 bg-background/80 backdrop-blur-xl p-2 rounded-2xl border border-white/5">
+                <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-4 bg-white/80 backdrop-blur-xl p-2 rounded-2xl border border-slate-200">
                     <div className="px-4 text-slate-500 hidden sm:flex items-center gap-2">
                         <Filter size={16} />
                         <span className="text-sm font-bold">Filter:</span>
@@ -65,7 +65,7 @@ export default function Work() {
                             className={`px-6 py-2 rounded-xl text-sm font-bold transition-all ${
                                 active === f 
                                 ? "bg-primary text-white shadow-lg shadow-primary/20" 
-                                : "text-slate-400 hover:text-white hover:bg-white/5"
+                                : "text-slate-500 hover:text-primary hover:bg-primary/5"
                             }`}
                         >
                             {f}
@@ -110,25 +110,25 @@ function ProjectCard({ project }) {
                         </span>
                     </div>
                     
-                    <h3 className="text-3xl md:text-4xl font-black text-white mb-2 group-hover:text-primary transition-colors font-display">
+                    <h3 className="text-3xl md:text-4xl font-black text-slate-900 mb-2 group-hover:text-primary transition-colors font-display">
                         {project.title}
                     </h3>
                     <p className="text-slate-500 font-bold mb-8">{project.client}</p>
                     
                     <div className="space-y-6 mb-10">
-                        <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/5">
+                        <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
                             <h4 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Challenge</h4>
-                            <p className="text-slate-300 text-sm leading-relaxed">{project.challenge}</p>
+                            <p className="text-slate-700 text-sm leading-relaxed">{project.challenge}</p>
                         </div>
-                        <div className="p-5 rounded-2xl bg-primary/[0.03] border border-primary/10">
+                        <div className="p-5 rounded-2xl bg-primary/5 border border-primary/20">
                             <h4 className="text-xs font-black text-primary/70 uppercase tracking-widest mb-2">Outcome</h4>
-                            <p className="text-white font-bold leading-relaxed">{project.outcome}</p>
+                            <p className="text-slate-900 font-bold leading-relaxed">{project.outcome}</p>
                         </div>
                     </div>
 
                     <div className="flex flex-wrap gap-2 mb-8">
                         {project.tags.map(tag => (
-                            <span key={tag} className="text-[10px] font-bold text-slate-400 bg-white/5 px-2.5 py-1 rounded-lg border border-white/5">
+                            <span key={tag} className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">
                                 {tag}
                             </span>
                         ))}
@@ -136,17 +136,17 @@ function ProjectCard({ project }) {
 
                     <Link 
                         href={project.link}
-                        className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-white text-dark font-black hover:bg-slate-200 transition-colors"
+                        className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-primary text-white font-black hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
                     >
                         View Project
                         <ExternalLink size={16} />
                     </Link>
                 </div>
 
-                <div className="relative aspect-video rounded-2xl overflow-hidden bg-slate-900 border border-white/5 group-hover:border-primary/20 transition-colors">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-violet/20 opacity-40" />
+                <div className="relative aspect-video rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 group-hover:border-primary/20 transition-colors">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-violet/10 opacity-40" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <ArrowUpRight size={64} className="text-white/10 group-hover:text-primary transition-all group-hover:scale-110" />
+                        <ArrowUpRight size={64} className="text-slate-200 group-hover:text-primary transition-all group-hover:scale-110" />
                     </div>
                 </div>
             </div>

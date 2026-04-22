@@ -25,6 +25,7 @@ export default function Navbar() {
         { name: "Services", href: "/services" },
         { name: "Work", href: "/work" },
         { name: "Tech", href: "/technologies" },
+        { name: "Careers", href: "/careers" },
     ];
 
     return (
@@ -42,7 +43,7 @@ export default function Navbar() {
                     <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold group-hover:rotate-12 transition-transform">
                         V
                     </div>
-                    <span className="text-xl font-bold tracking-tight text-white font-display">
+                    <span className="text-xl font-bold tracking-tight text-slate-900 font-display">
                         Vajra<span className="text-primary">Tech</span>
                     </span>
                 </Link>
@@ -53,8 +54,8 @@ export default function Navbar() {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className={`text-sm font-medium transition-colors hover:text-white ${
-                                pathname === link.href ? "text-white" : "text-slate-400"
+                            className={`text-sm font-medium transition-colors hover:text-primary ${
+                                pathname === link.href ? "text-primary" : "text-slate-600"
                             }`}
                         >
                             {link.name}
@@ -72,7 +73,7 @@ export default function Navbar() {
                 {/* Mobile Toggle */}
                 <button 
                     onClick={() => setIsOpen(!isOpen)}
-                    className="md:hidden text-white p-1"
+                    className="md:hidden text-slate-900 p-1"
                 >
                     {isOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
@@ -85,7 +86,7 @@ export default function Navbar() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="fixed inset-x-4 top-24 z-40 md:hidden glass-panel rounded-3xl p-6 border-white/10 shadow-3xl pointer-events-auto"
+                        className="fixed inset-x-4 top-24 z-40 md:hidden glass-panel rounded-3xl p-6 border-slate-200 shadow-3xl pointer-events-auto"
                     >
                         <div className="flex flex-col gap-6">
                             {navLinks.map((link) => (
@@ -93,12 +94,12 @@ export default function Navbar() {
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
-                                    className="text-lg font-semibold text-slate-300 hover:text-white transition-colors"
+                                    className="text-lg font-semibold text-slate-700 hover:text-primary transition-colors"
                                 >
                                     {link.name}
                                 </Link>
                             ))}
-                            <hr className="border-white/10" />
+                            <hr className="border-slate-200" />
                             <Link 
                                 href="/contact"
                                 onClick={() => setIsOpen(false)}

@@ -38,7 +38,7 @@ export default function HeroDynamic() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
+                    className="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
                 >
                     Helping bold companies scale with premium engineering, 
                     intuitive design, and cloud-native solutions that actually perform.
@@ -59,7 +59,7 @@ export default function HeroDynamic() {
                     </Link>
                     <Link 
                         href="/services" 
-                        className="w-full sm:w-auto px-8 py-4 rounded-2xl glass-panel border-white/10 text-white font-bold hover:bg-white/5 transition-all text-center"
+                        className="w-full sm:w-auto px-8 py-4 rounded-2xl glass-panel border-slate-200 text-slate-900 font-bold hover:bg-slate-50 transition-all text-center"
                     >
                         Our Services
                     </Link>

@@ -92,7 +92,7 @@ export default function Technologies() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed"
+                        className="text-slate-600 text-lg md:text-xl max-w-2xl leading-relaxed"
                     >
                         We use a Battle-tested modern stack to build products that are 
                         secure, scalable, and delightful to use.
@@ -102,7 +102,7 @@ export default function Technologies() {
 
             {/* Toolbar */}
             <div className="px-6 mb-12 sticky top-24 z-30">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 items-center bg-background/80 backdrop-blur-xl p-4 rounded-3xl border border-white/5">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 items-center bg-white/80 backdrop-blur-xl p-4 rounded-3xl border border-slate-200">
                     <div className="flex flex-wrap justify-center gap-2">
                         {["All", ...categories.map(c => c.label)].map(tab => (
                             <button
@@ -111,7 +111,7 @@ export default function Technologies() {
                                 className={`px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${
                                     activeTab === tab 
                                     ? "bg-primary text-white shadow-lg shadow-primary/20" 
-                                    : "text-slate-500 hover:text-white"
+                                    : "text-slate-500 hover:text-primary"
                                 }`}
                             >
                                 {tab}
@@ -119,13 +119,13 @@ export default function Technologies() {
                         ))}
                     </div>
                     <div className="relative w-full md:w-80">
-                        <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-600" />
+                        <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
                         <input 
                             type="text" 
                             placeholder="Search stack..."
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            className="w-full pl-12 pr-6 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-primary/50 transition-all"
+                            className="w-full pl-12 pr-6 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary/50 transition-all focus:bg-white"
                         />
                     </div>
                 </div>
@@ -144,20 +144,20 @@ export default function Technologies() {
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.9 }}
                                     transition={{ delay: i * 0.05 }}
-                                    className="glass-card rounded-3xl p-8 border-white/5 hover:border-primary/30 group"
+                                    className="glass-card rounded-3xl p-8 border-slate-200 hover:border-primary/30 group"
                                 >
                                     <div className="flex justify-between items-start mb-6">
                                         <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
                                             <Zap size={20} />
                                         </div>
                                         <span className={`px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-wider ${
-                                            tech.level === "Expert" ? "bg-green-500/10 text-green-400" : "bg-blue-500/10 text-blue-400"
+                                            tech.level === "Expert" ? "bg-green-500/10 text-green-600" : "bg-blue-500/10 text-blue-600"
                                         }`}>
                                             {tech.level}
                                         </span>
                                     </div>
-                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{tech.name}</h3>
-                                    <p className="text-slate-500 text-sm leading-relaxed">{tech.desc}</p>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors">{tech.name}</h3>
+                                    <p className="text-slate-600 text-sm leading-relaxed">{tech.desc}</p>
                                 </motion.div>
                             ))}
                         </AnimatePresence>
