@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-
+// card
 export default function ServiceCard({ number, title, detail, link, index }) {
     return (
         <motion.div
