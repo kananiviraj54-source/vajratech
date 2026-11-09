@@ -24,7 +24,7 @@ export const metadata = {
   ...(process.env.GOOGLE_SITE_VERIFICATION
     ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
     : {}),
-  icons: { icon: "/SHORTLOGO.png", apple: "/SHORTLOGO.png" },
+  icons: { icon: [{url:"/vajratech-icon.png",type:"image/png",sizes:"192x192"}], shortcut:"/favicon.ico", apple:[{url:"/apple-icon.png",sizes:"180x180",type:"image/png"}] },
 };
 const schema = {
   "@context": "https://schema.org",
